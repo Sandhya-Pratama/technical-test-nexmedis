@@ -1,4 +1,3 @@
-
 # E-Commerce API
 
 This is a simple back-end API for an e-commerce platform built using Go (Golang) and PostgreSQL. The API includes features such as user authentication, product search, shopping cart management, and order completion.
@@ -98,11 +97,11 @@ CREATE TABLE order_items (
 Create a `.env` file in the root directory of the project and add your PostgreSQL credentials:
 
 ```
-DB_HOST=localhost
-DB_PORT=5432
-DB_USER=yourusername
-DB_PASSWORD=yourpassword
-DB_NAME=ecommerce_api
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+POSTGRES_USER=yourusername
+POSTGRES_PASSWORD=yourpassword
+POSTGRES_DATABASE=e-commerce
 ```
 
 ### 4. Run the Application
@@ -119,13 +118,16 @@ By default, the server will run on port `8080`. You can change the port in the c
 
 #### **1. User Registration and Authentication**
 
-- **POST /user/register** - Register a new user.
-- **POST /user/login** - Login with username and password to get a JWT token.
+- **POST /users/register** - Register a new user.
+- **POST /users/login** - Login with username and password to get a JWT token.
+ ![Login](docs/login.png)
 
 #### **2. Product Management**
 
 - **GET /products** - Get a list of all products.
+   ![Login](docs/getallproduct.png)
 - **GET /products/search** - Search products by name and/or category.
+   ![Login](docs/searchproduct.png)
 
 #### **3. Cart Management**
 
