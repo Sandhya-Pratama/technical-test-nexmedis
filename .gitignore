@@ -2,6 +2,7 @@
 # Ignore Windows system files
 Thumbs.db
 desktop.ini
+*Makefile
 
 # Ignore general backup and temporary files
 *.tmp
