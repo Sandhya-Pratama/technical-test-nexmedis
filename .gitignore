@@ -1,0 +1,93 @@
+
+# Ignore Windows system files
+Thumbs.db
+desktop.ini
+
+# Ignore general backup and temporary files
+*.tmp
+*.log
+*.swp
+*.bak
+*.old
+*.sublime-workspace
+*.sublime-project
+
+# Ignore Go files
+*.exe
+*.out
+*.test
+
+
+# Ignore database files
+*.sqlite3
+*.db
+*.sql
+
+# Ignore media files
+*.mp4
+*.avi
+*.mov
+*.mp3
+*.wav
+
+# Ignore compressed files
+*.zip
+*.tar.gz
+*.rar
+
+# Ignore editor and IDE configurations
+.vscode/
+.idea/
+*.sublime-*
+
+# Ignore environmental files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore specific operating system files
+Thumbs.db
+ehthumbs.db
+
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Output of the Go compiler
+*.out
+
+# Dependency directories (vendor/)
+vendor/
+
+# Go module files
+go.sum
+
+# Log files
+*.log
+
+# Configuration files
+.env
+
+# IDE and editor specific files
+.vscode/
+.idea/
+*.iml
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Coverage files
+*.cover
+*.test
+
+# Temporary files
+*.tmp
+*.temp
+
+# PostgreSQL data files
+pgdata/
