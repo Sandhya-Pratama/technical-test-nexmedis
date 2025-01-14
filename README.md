@@ -123,9 +123,9 @@ By default, the server will run on port `8080`. You can change the port in the c
 
 #### **3. Cart Management**
 
-- **POST /cart/add** - Add an item to the cart.
+- **POST /carts** - Add an item to the cart.
   ![Cart](docs/addcart.png)
-- **GET /cart** - View the user's current cart.
+- **GET /carts/:id** - View the user's current cart.
   ![Cart](docs/getcart.png)
 #### **4. Completing a Purchase**
 
