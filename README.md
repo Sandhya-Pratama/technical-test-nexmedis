@@ -111,6 +111,7 @@ By default, the server will run on port `8080`. You can change the port in the c
 #### **1. User Registration and Authentication**
 
 - **POST /users/register** - Register a new user.
+  ![Login](docs/register.png)
 - **POST /users/login** - Login with username and password to get a JWT token.
  ![Login](docs/login.png)
 
