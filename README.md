@@ -50,22 +50,14 @@ CREATE TABLE products (
 CREATE TABLE carts (
     id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-```
-
-#### **CartItems Table**
-
-```sql
-CREATE TABLE cart_items (
-    id SERIAL PRIMARY KEY,
-    cart_id INT NOT NULL,
     product_id INT NOT NULL,
-    quantity INT DEFAULT 1,
-    FOREIGN KEY (cart_id) REFERENCES carts (id),
-    FOREIGN KEY (product_id) REFERENCES products (id)
+    quantity INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
 );
 ```
+
 
 #### **Orders Table**
 
@@ -125,15 +117,16 @@ By default, the server will run on port `8080`. You can change the port in the c
 #### **2. Product Management**
 
 - **GET /products** - Get a list of all products.
-   ![Login](docs/getallproduct.png)
+   ![Product](docs/getallproduct.png)
 - **GET /products/search** - Search products by name and/or category.
-   ![Login](docs/searchproduct.png)
+   ![[Product](docs/searchproduct.png)
 
 #### **3. Cart Management**
 
 - **POST /cart/add** - Add an item to the cart.
+  ![Cart](docs/addcart.png)
 - **GET /cart** - View the user's current cart.
-
+  ![Cart](docs/getcart.png)
 #### **4. Completing a Purchase**
 
 - **POST /purchase** - Complete the purchase and place an order.
