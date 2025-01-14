@@ -17,4 +17,7 @@ func SetupUserRoutes(app *fiber.App) {
 	app.Post("/carts", handler.CreateCart)
 	app.Get("/carts/:id", handler.GetCartByUserID)
 	app.Delete("/carts/:id", handler.DeleteCart)
+
+	app.Post("/orders", handler.CreateOrderHandler)
+	app.Get("/orders/:id", handler.GetOrderHandler)
 }
