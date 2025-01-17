@@ -6,6 +6,7 @@ import (
 	"github.com/Sandhya-Pratama/technical-test-nexmedis/models"
 	"github.com/Sandhya-Pratama/technical-test-nexmedis/repository"
 	"github.com/Sandhya-Pratama/technical-test-nexmedis/service"
+	"github.com/Sandhya-Pratama/technical-test-nexmedis/utils"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -48,8 +49,15 @@ func LoginUser(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": err.Error()})
 	}
 
+	// Generate JWT token
+	token, err := utils.GenerateJWT(user.ID, user.Username)
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "Failed to generate token"})
+	}
+
 	return c.JSON(fiber.Map{
 		"message": "Login successful",
+		"token":   token,
 		"user":    fiber.Map{"username": user.Username, "email": user.Email},
 	})
 }

@@ -2,22 +2,26 @@ package router
 
 import (
 	"github.com/Sandhya-Pratama/technical-test-nexmedis/handler"
+	"github.com/Sandhya-Pratama/technical-test-nexmedis/middleware"
 	"github.com/gofiber/fiber/v2"
 )
 
-func SetupUserRoutes(app *fiber.App) {
+func SetupRoutes(app *fiber.App) {
+	// Public Routes
+	public := app.Group("/api/v1")
+	public.Post("/users/register", handler.RegisterUser)
+	public.Post("/users/login", handler.LoginUser)
 
-	app.Post("users/register", handler.RegisterUser)
-	app.Post("users/login", handler.LoginUser)
+	// Private Routes
+	private := app.Group("/api/v1", middleware.AuthRequired)
+	private.Post("/products", handler.CreateProductHandler)
+	private.Get("/products/:id", handler.GetProductHandler)
+	private.Get("/products", handler.SearchProductHandler)
 
-	app.Post("/products", handler.CreateProductHandler)
-	app.Get("/products/:id", handler.GetProductHandler)
-	app.Get("/products", handler.SearchProductHandler)
+	private.Post("/carts", handler.CreateCart)
+	private.Get("/carts/:id", handler.GetCartByUserID)
+	private.Delete("/carts/:id", handler.DeleteCart)
 
-	app.Post("/carts", handler.CreateCart)
-	app.Get("/carts/:id", handler.GetCartByUserID)
-	app.Delete("/carts/:id", handler.DeleteCart)
-
-	app.Post("/orders", handler.CreateOrderHandler)
-	app.Get("/orders/:id", handler.GetOrderHandler)
+	private.Post("/orders", handler.CreateOrderHandler)
+	private.Get("/orders/:id", handler.GetOrderHandler)
 }

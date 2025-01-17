@@ -23,7 +23,7 @@ func main() {
 	app := fiber.New()
 
 	// Setup routes
-	router.SetupUserRoutes(app)
+	router.SetupRoutes(app)
 
 	// Start server
 	port := os.Getenv("PORT")
